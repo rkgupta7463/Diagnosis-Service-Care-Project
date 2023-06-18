@@ -1,0 +1,351 @@
+{% extends "base.html" %} {% load static %}{% block styleblock %}
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
+    html,
+    body {
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        height: 100%;
+        width: 100%;
+        background: #FFF;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+    }
+    
+    .wrapper {
+        display: table;
+        height: 100%;
+        width: 100%;
+    }
+    
+    .container-fostrap {
+        display: table-cell;
+        padding: 1em;
+        text-align: center;
+        vertical-align: middle;
+    }
+    
+    .fostrap-logo {
+        width: 100px;
+        margin-bottom: 15px
+    }
+    
+    h1.heading {
+        color: #fff;
+        font-size: 1.15em;
+        font-weight: 900;
+        margin: 0 0 0.5em;
+        color: #505050;
+    }
+    
+    .row input {
+        background: #f4f4f4;
+        padding: 15px;
+    }
+    
+    .row textarea {
+        background: #f4f4f4;
+        padding: 15px;
+    }
+    
+    #fimg img:hover {
+        transform: scale(1.02);
+    }
+    
+    .oneimg {
+        height: 65vh;
+    }
+    
+    @media (min-width: 450px) {
+        h1.heading {
+            font-size: 3.55em;
+        }
+    }
+    
+    @media (min-width: 760px) {
+        h1.heading {
+            font-size: 3.05em;
+        }
+    }
+    
+    @media (min-width: 900px) {
+        h1.heading {
+            font-size: 3.25em;
+            margin: 0 0 0.3em;
+        }
+    }
+    
+    .card {
+        display: block;
+        margin-bottom: 20px;
+        line-height: 1.42857143;
+        background-color: #fff;
+        border-radius: 2px;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        transition: box-shadow .25s;
+    }
+    
+    .card:hover {
+        box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    
+    .img-card {
+        width: 100%;
+        height: 200px;
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px;
+        display: block;
+        overflow: hidden;
+    }
+    
+    .img-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        transition: all .25s ease;
+    }
+    
+    .card-content {
+        padding: 15px;
+        text-align: left;
+    }
+    
+    .card-title {
+        margin-top: 0px;
+        font-weight: 700;
+        font-size: 1.65em;
+    }
+    
+    .card-title a {
+        color: #000;
+        text-decoration: none !important;
+    }
+    
+    .card-read-more {
+        border-top: 1px solid #D4D4D4;
+    }
+    
+    .card-read-more a {
+        text-decoration: none !important;
+        padding: 10px;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+    
+    @media screen and (max-width:900px) {
+        .oneimg {
+            height: 15.5vh;
+        }
+        #coat span {
+            font-size: xx-small;
+        }
+    }
+</style>
+
+{% endblock styleblock %} {% block mainblock %}
+<!-- end navbar -->
+<!-- carousal start -->
+<div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'img/molecular-diagnostics.jpg' %}" class="oneimg d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'img/out-of-state-providers-header-1.webp' %}" class="oneimg d-block w-100" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<!-- end carousal -->
+
+<section class="wrapper">
+    <div class="container-fostrap">
+        <div>
+            <img src="{% static 'img/health-care-medical-icon.jpg' %}" class="fostrap-logo" />
+            <h1 class="heading">
+                Diagnosis Services Care
+            </h1>
+            <p id="coat"><span>👉Empowering Health and Wellness: Diagnosis Services Care, Your Compassionate Guide to Better Living👈</span></p>
+            <hr>
+        </div>
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="card">
+                            <a class="img-card" href="#">
+                                <img src="{% static 'img/heart.png' %}" />
+                            </a>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <p> Heart Disease Prediction
+                                    </p>
+                                </h4>
+                                <p class="">
+                                    Heart disease prediction utilizes machine learning algorithms to assess patient data and determine the likelihood of developing cardiovascular conditions for proactive intervention and prevention.
+                                </p>
+                            </div>
+                            <div class="card-read-more">
+                                <a href="{% url 'heart_disease' %}" class="btn btn-link btn-block">
+                                    Check
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="card">
+                            <a class="img-card" href="#">
+                                <img src="{% static 'img/kidneys-in-dr-hands.jpg' %}" />
+                            </a>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <a href="#"> Kidney Disease Prediction
+                                    </a>
+                                </h4>
+                                <p class="">
+                                    Kidney disease prediction employs machine learning models to analyze patient data and identify the probability of developing renal conditions, aiding in early detection and targeted treatment strategies.
+                                </p>
+                            </div>
+                            <div class="card-read-more">
+                                <a href="{% url 'kidney_disease' %}" class="btn btn-link btn-block">
+                                    Check
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="card">
+                            <a class="img-card" href="#">
+                                <img src="{% static 'img/Diagnosing-Diabetes.jpg' %}" />
+                            </a>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <a href="#">Diabetes Disease Prediction
+                                    </a>
+                                </h4>
+                                <p class="">Using machine learning, diabetes prediction analyzes patient data to identify individuals at risk and enables targeted interventions for prevention and effective management.
+                                </p>
+                            </div>
+                            <div class="card-read-more">
+                                <a href="{% url 'diabetes' %}" class="btn btn-link btn-block">
+                                    Check
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- about the website -->
+<div class="container" id="about">
+    <h3 class="h3 fw-bold fs-1 text-center mb-1" style="color: #9c9e9f;">About Us</h3>
+    <!-- <hr> -->
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <p id="fimg">
+                        <img src="{% static 'img/resource-25-most-common-diagnosis.jpg' %}" alt="Image " class="img-fluid ">
+                    </p>
+                </div>
+                <div class="col-md-6 ">
+                    <p>Welcome to Diagnosis Services Care, your trusted source for accurate and comprehensive disease prediction services. Our website specializes in providing professional predictions for heart disease, kidney disease, and diabetes.<br><br>With
+                        our advanced algorithms and thorough analysis of patient data, we offer precise predictions to assess the likelihood of developing these conditions. Early detection plays a vital role in managing and preventing serious health issues,
+                        and our services empower individuals to take proactive steps towards better health.<br><br>At Diagnosis Services Care, we prioritize privacy and confidentiality, ensuring that your personal information is protected. Our user-friendly
+                        platform allows easy access to your prediction results, enabling you to make informed decisions about your health and well-being.</p>
+                    <div id="form-message-warning mt-5 "></div>
+                    <div id="form-message-success ">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- end about the website -->
+
+<!-- start patients forms -->
+<div class="container">
+    <h3 class="h3 fw-bold fs-1 text-center mb-1" style="color: #9c9e9f;">Feedback</h3>
+    <!-- <hr> -->
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <h3 class="heading mb-4" style="font-size: 2.9rem;font-weight: 900;">Let's talk about problems!
+                    </h3>
+                    <p style="color:rgb(160, 158, 158)">patients can discuss their problems with doctors. <br>❤️Hearthly Welcome❤️
+                    </p>
+
+                    <p id="fimg">
+                        <img src="{% static 'img/Department-of-Radiology-and-Diagnostic-Servic.jpg' %}" alt="Image " class="img-fluid ">
+                    </p>
+                </div>
+                <div class="col-md-6 ">
+
+                    <form class="mb-5 " method="post">
+                        {% csrf_token %}
+                        <div class="row m-4 ">
+                            <div class="col-md-12 form-group ">
+                                <input type="text " class="form-control " name="name" id="name " placeholder="Your name " required>
+                            </div>
+                        </div>
+                        <div class="row m-4 ">
+                            <div class="col-md-12 form-group ">
+                                <input type="email " class="form-control " name="email" id="email " placeholder="Email " required>
+                            </div>
+                        </div>
+
+                        <div class="row m-4 ">
+                            <div class="col-md-12 form-group ">
+                                <input type="text" class="form-control " name="phone_no" id="phone " placeholder="Phone No." required>
+                            </div>
+                        </div>
+                        <div class="row m-4 ">
+                            <div class="col-md-12 form-group ">
+                                <input type="text " class="form-control " name="problem" id="subject " placeholder="Problems" required>
+                            </div>
+                        </div>
+                        <div class="row m-4 ">
+                            <div class="col-md-12 form-group ">
+                                <textarea class="form-control " name="problemsms" id="message" cols="30 " rows="7 " placeholder="Kindly Describe Your Problems" required></textarea>
+                            </div>
+                        </div>
+                        {% if sms %}
+                        <div class="alert alert-success" role="alert">
+                            {{sms}}
+                        </div>
+                        {% endif %}
+                        <div class="row m-4 ">
+                            <div class="col-12 ">
+                                <button type="submit" class="btn btn-dark rounded-0 py-2 px-4 rounded-1">Submit</button>
+                                <span class="submitting "></span>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div id="form-message-warning mt-5 "></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end patients forms -->
+
+
+{% endblock mainblock %}

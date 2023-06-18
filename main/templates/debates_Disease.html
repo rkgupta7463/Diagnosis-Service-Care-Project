@@ -1,0 +1,167 @@
+{% extends "base.html" %} {% block styleblock %}
+<style>
+    .reports {
+        margin: 0;
+        padding: 0;
+        padding: 15px;
+        font-size: larger;
+    }
+    
+    @media screen and (max-width:900px) {
+        .reports {
+            margin: 0;
+            font-size: xx-small;
+            padding-bottom: 10px;
+        }
+    }
+</style> {% endblock styleblock %} {% block mainblock %}
+<div class="contain" style="background: #fcd8d8; padding: 15px;">
+    <div class="container pt-5" style="box-shadow: 2px 15px 20px 20px white;border-radius: 20px;">
+        <h2 class="text-center mb-4">Diabetes Disease Testing</h2>
+        <form method="post">
+            {% csrf_token %}
+            <!-- 2 column grid layout with text inputs for the first and last names -->
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <input type="text" id="form6Example1" class="form-control" name="fname" required />
+                        <label class="form-label" for="form6Example1">First name</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <input type="text" id="form6Example2" class="form-control" name="lname" required />
+                        <label class="form-label" for="form6Example2">Last name</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <input type="text" id="form6Example3" class="form-control" name="age" required />
+                        <label class="form-label" for="form6Example3">Age</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <select class="form-select" name="gender" aria-label="Default select example" required>
+                            <option selected>Select......</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <label class="form-label" for="form6Example3">Gender</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text input -->
+            <div class="form-outline mb-4">
+                <input type="text" id="form6Example4" name="address" class="form-control" required />
+                <label class="form-label" for="form6Example4">Address</label>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <!-- Email input -->
+                        <input type="email" id="form6Example5" name="mail" class="form-control" required />
+                        <label class="form-label" for="form6Example5">Email</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <!-- Number input -->
+                        <input type="number" id="form6Example6" name="phone_no" class="form-control" required />
+                        <label class="form-label" for="form6Example6">Phone</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <input type="number" id="form6Example6" name="htn" class="form-control" required />
+                        <label class="form-label" for="form6Example6">hypertension</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <!-- Number input -->
+                        <input type="number" id="form6Example6" name="htd" class="form-control" required />
+                        <label class="form-label" for="form6Example5">heart_disease</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <select class="form-select" name="sh" aria-label="Default select example" required>
+                            <option selected>Select......</option>
+                            <option value="never">Never</option>
+                            <option value="No Info">No Info</option>
+                            <option value="current">Current</option>
+                            <option value="former">Former</option>
+                            <option value="ever">Ever</option>
+                            <option value="not current">Not Current</option>
+                        </select>
+                        <label class="form-label" for="form6Example5">Smoking History</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <!-- Number input -->
+                        <input type="number" id="form6Example6" name="hbl" class="form-control" required />
+                        <label class="form-label" for="form6Example5">HbA1c (Hemoglobin A1c) level is a measure of a
+                            person's average blood sugar level over the past 2-3 months. Higher levels </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <input type="number" id="form6Example6" name="bmi" class="form-control" required />
+                        <label class="form-label" for="form6Example6">body mass index</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <!-- Number input -->
+                        <input type="number" id="form6Example6" name="bgl" class="form-control" required />
+                        <label class="form-label" for="form6Example6">Blood Glucose Level</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-4">Check Result</button>
+            <a class="btn btn-primary btn-block mb-4" href="{% url 'index' %}">Go Back</a>
+        </form>
+        <div class="reports">
+            {% if rs is not None %}
+            <p class="text-center">Patient Report</p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Email Id</th>
+                        <th scope="col">Patient Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">{{fullname}}</th>
+                        <td>{{address}}</td>
+                        <td>{{email}}</td>
+                        <td>{{rs}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock mainblock %}

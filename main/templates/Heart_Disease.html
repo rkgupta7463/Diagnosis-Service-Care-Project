@@ -1,0 +1,258 @@
+{% extends "base.html" %} {% block styleblock %}
+<style>
+    .reports {
+        margin: 0;
+        padding: 0;
+        padding: 15px;
+        font-size: larger;
+    }
+    
+    .contain {
+        position: relative;
+        top: 6%;
+        background: #fcd8d8;
+        padding: 15px;
+    }
+    
+    @media screen and (max-width:900px) {
+        .reports {
+            margin: 0;
+            font-size: xx-small;
+            padding-bottom: 10px;
+        }
+        .contain {
+            top: 4.5%;
+        }
+    }
+</style> {% endblock styleblock %} {% block mainblock %}
+<div class="contain">
+    <div class="container pt-5" style="box-shadow: 2px 15px 20px 20px white;border-radius: 20px;">
+        <h2 class="text-center mb-4">Heart Disease Testing</h2>
+        <form method="post">
+            {% csrf_token %}
+            <!-- 2 column grid layout with text inputs for the first and last names -->
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <input type="text" id="form6Example1" class="form-control" name="fname" required />
+                        <label class="form-label" for="form6Example1">First name</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <input type="text" id="form6Example2" class="form-control" name="lname" required />
+                        <label class="form-label" for="form6Example2">Last name</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <input type="text" id="form6Example3" class="form-control" name="age" required />
+                        <label class="form-label" for="form6Example3">Age</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <select class="form-select" name="gender" aria-label="Default select example" required>
+                            <option selected>Select......</option>
+                            <option value="1">Male</option>
+                            <option value="0">Female</option>
+                            <option value="2">Other</option>
+                        </select>
+                        <label class="form-label" for="form6Example3">Gender</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text input -->
+            <div class="form-outline mb-4">
+                <input type="text" id="form6Example4" name="address" class="form-control" required />
+                <label class="form-label" for="form6Example4">Address</label>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <!-- Email input -->
+                        <input type="email" id="form6Example5" name="mail" class="form-control" required />
+                        <label class="form-label" for="form6Example5">Email</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <!-- Number input -->
+                        <input type="number" id="form6Example6" name="phone_no" class="form-control" required />
+                        <label class="form-label" for="form6Example6">Phone</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <select class="form-select" name="cpt" aria-label="Default select example" required>
+                            <option selected>Select......</option>
+                            <option value="1">Typical Angina</option>
+                            <option value="2">Atypical angina
+                            </option>
+                            <option value="3">non-anginal pain
+                            <option value="4">asymptomatic
+                            </option>
+                        </select>
+                        <label class="form-label" for="form6Example5">Chest pain type</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <!-- Number input -->
+                        <input type="number" id="form6Example6" name="bp" class="form-control" required />
+                        <label class="form-label" for="form6Example6">Blood Precser</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <select class="form-select" name="fbs" aria-label="Default select example" required>
+                            <option selected>Select......</option>
+                            <option value="1">True</option>
+                            <option value="0">False</option>
+                        </select>
+                        <label class="form-label" for="form6Example5">Fasting Blood Sugar</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <!-- Number input -->
+                        <input type="number" id="form6Example6" name="Chol" class="form-control" required />
+                        <label class="form-label" for="form6Example6">Cholesterol</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <select class="form-select" name="ecg" aria-label="Default select example" required>
+                            <option selected>Select......</option>
+                            <option value="0">Normal</option>
+                            <option value="1">having ST-T wave abnormality (T wave inversions and/or ST elevation or
+                                depression of > 0.05 mV)
+                            </option>
+                            <option value="2">howing probable or definite left ventricular hypertrophy by Estes'
+                                criteria
+                            </option>
+                        </select>
+                        <label class="form-label" for="form6Example5">Electrocardio graphic</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <!-- Number input -->
+                        <input type="number" id="form6Example6" name="mhr" class="form-control" required />
+                        <label class="form-label" for="form6Example6">Max Heart Rate</label>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <select class="form-select" name="exang" aria-label="Default select example" required>
+                            <option selected>Select......</option>
+                            <option value="1">Yes</option>
+                            <option value="0">No
+                            </option>
+                        </select>
+                        <label class="form-label" for="form6Example5">Exercise angina</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <!-- Number input -->
+                        <input type="number" id="form6Example6" name="std" class="form-control" required />
+                        <label class="form-label" for="form6Example6">ST depression</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <select class="form-select" name="sst" aria-label="Default select example" required>
+                            <option selected>Select......</option>
+                            <option value="1">upsloping</option>
+                            <option value="2">Flat</option>
+                            <option value="3">downsloping</option>
+                        </select>
+                        <label class="form-label" for="form6Example5">Slope of ST</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <!-- Number input -->
+                        <input type="number" id="form6Example6" name="novf" class="form-control" required />
+                        <label class="form-label" for="form6Example6">Number of vessels fluro</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <select class="form-select" name="thal" aria-label="Default select example" required>
+                            <option selected>Select......</option>
+                            <option value="3">Normal</option>
+                            <option value="6">Fixed defect</option>
+                            <option value="7">Reversible defect</option>
+                        </select>
+                        <label class="form-label" for="form6Example5">Thalassemia</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline" style="padding-top: 8px;">
+                        <!-- Number input -->
+                        <input class="form-check-input me-2" type="checkbox" value="livep" id="form6Example8" required />
+                        <label class="form-check-label" for="form6Example8"> Is patient live ? </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-4">Check Result</button>
+            <a class="btn btn-primary btn-block mb-4" href="{% url 'index' %}">Go Back</a>
+        </form>
+
+
+        <div class="reports">
+            {% if rs is not None %}
+            <p class="text-center">Patient Report</p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Email Id</th>
+                        <th scope="col">Patient Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">{{fullname}}</th>
+                        <td>{{address}}</td>
+                        <td>{{email}}</td>
+                        <td>{{rs}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock mainblock %}
