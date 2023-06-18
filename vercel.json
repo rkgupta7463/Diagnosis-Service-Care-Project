@@ -1,53 +1,14 @@
 {
-
-    "version": 2,
-
     "builds": [
-
-        {
-
-            "src": "Heart_dis_proj/wsgi.py",
-
-            "use": "@vercel/python",
-
-            "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
-
-        },
-
-        {
-
-            "src": "build_files.sh",
-
-            "use": "@vercel/static-build",
-
-            "config": {
-
-                "distDir": "staticfiles_build"
-
-            }
-
-        }
-
+      {
+        "src": "Heart_dis_proj/wsgi.py",
+        "use": "@vercel/python"
+      }
     ],
-
     "routes": [
-
-        {
-
-            "src": "/static/(.*)",
-
-            "dest": "/static/$1"
-
-        },
-
-        {
-
-            "src": "/(.*)",
-
-            "dest": "Heart_dis_proj/wsgi.py"
-
-        }
-
+      {
+        "src": "/(.*)",
+        "dest": "Heart_dis_proj/wsgi.py"
+      }
     ]
-
 }
