@@ -4,4 +4,4 @@
 1. Heart Disease Prediction
 2. Kidney Disease Prediction
 3. Diabetes Disease Prediction
-\WebSite Link:- https://diagnosisservicecare.pythonanywhere.com/
+\n WebSite Link:- https://diagnosisservicecare.pythonanywhere.com/
